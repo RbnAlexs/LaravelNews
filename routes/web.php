@@ -31,8 +31,8 @@ Route::get('saludos/{nombre?}', ['as'=>'saludos',function($nombre = "Invitado"){
 	$html = "<h2>HOLA ESTO ES UN VIRUS</h2>";
 	$consolas = [
 		"Nintendo Wii", 
-		"Xbos Live",
-		"PS4"
+		//"Xbos Live",
+		//"PS4"
 	];
 	return view('saludos', compact('nombre', 'html','consolas'));
 
