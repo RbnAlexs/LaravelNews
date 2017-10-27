@@ -18,7 +18,7 @@
 				<a class="{{ activeMenu('/')}}" href="{{ route('home') }}">INICIO</a>
 				<a class="{{ activeMenu('vista')}}" href="{{ route ('vista')}}">VISTA</a>
 				<a class="{{ activeMenu('saludos')}}" href="{{ route ('saludos')}}">SALUDOS</a>
-				<a class="{{activeMenu('contacto')}}" href="{{route('contacto')}}">CONTACTO</a>
+				<a class="{{activeMenu('contactos')}}" href="{{route('contactos')}}">CONTACTO</a>
 			</nav>
 		</header>
 		<h1>{{ request() -> is('vista') ? 'Estas en el inicio':'No estas en el inicio'}}</h1>

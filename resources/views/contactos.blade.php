@@ -10,16 +10,19 @@
 	<label for="nombre">
 		Nombre
 		<input type="text" name="nombre">
-	</label>
+		{{ $errors->first('nombre') }}
+	</label><br/>
 
 	<label for="email">
 		Email
-		<input type="email" name="email">
-	</label>
+		<input type="text" name="email">
+		{{ $errors->first('email') }}
+	</label><br/>
 
 	<label for="mensaje">
 		<textarea name="mensaje" id="" cols="30" rows="10"></textarea>
-	</label>
+		{{ $errors->first('mensaje') }}
+	</label><br/>
 	<input type="submit" value="Enviar">
 </form>
 

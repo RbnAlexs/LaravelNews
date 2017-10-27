@@ -24,4 +24,5 @@ Route::get('controlador', ['as' =>'inicio', 'uses'=>'PagesController@home']);
 Route::get('saludos/{nombre?}', ['as'=>'saludos', 'uses' => 'PagesController@saludos'])->where('nombre', "[A-Za-z]+");
 
 //Ejemplo de formulario
-Route::post('contacto', 'PagesController@mensajes')->name('contacto');
+Route::get('contactame',['as'=>'contactos', 'uses'=> 'PagesController@contact']);
+Route::post('contacto', 'PagesController@mensaje');
