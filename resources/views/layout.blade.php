@@ -1,14 +1,27 @@
 <html>
 <head>
-	<title></title>
+	<title>Titulo principal</title>
 </head>
 	<body>
 		<header>
+			<style>
+				nav .active{
+					color: green;
+					text-decoration: none
+				}
+			</style>
 			<nav>
-				<a href="/"></a>
-				<a href="<?php echo route('saludos')?>">SALUD 2 PA TODOS</a>
+				<?php function activeMenu($url) {
+						return request() -> is ($url) ? 'active' : '';
+					}
+				?>
+				<a class="{{ activeMenu('/')}}" href="{{ route('home') }}">INICIO</a>
+				<a class="{{ activeMenu('vista')}}" href="{{ route ('vista')}}">VISTA</a>
+				<a class="{{ activeMenu('saludos')}}" href="{{ route ('saludos')}}">SALUDOS</a>
+				<a class="{{activeMenu('contacto')}}" href="{{route('contacto')}}">CONTACTO</a>
 			</nav>
 		</header>
+		<h1>{{ request() -> is('vista') ? 'Estas en el inicio':'No estas en el inicio'}}</h1>
 		@yield('contenido')
 		<footer>Copyright {{date('Y')}}</footer>
 	</body>

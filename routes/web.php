@@ -11,29 +11,17 @@
 |
 */
 
-Route::get('contacto', function(){
-	return "Hoja de contacto";
-});
+//Retorna sólo  una vista desde la ruta con un alias para blade
+Route::view('/', 'home') -> name('home');
 
-Route::get('/', function(){
-	//return "Hola desde la pagina de inicio";
-	echo '<a href="'.route('contactos').'">CONTACTO</a>';
-	return view ('home');
-});
+//Retorna sólo una vista desde la ruta
+Route::view('/vista', 'vista',['variable'=>'Este el paso de una variable desde routa-vista'])->name('vista');
 
-Route::get('contacto', ['as'=>'contactos', function(){
-	return "Seccion de contactos";
-}]);
+//Llamado a un controlador
+Route::get('controlador', ['as' =>'inicio', 'uses'=>'PagesController@home']);
 
-Route::get('saludos/{nombre?}', ['as'=>'saludos',function($nombre = "Invitado"){
-	//return "Saludos $nombre";
-	//return view('saludos', ['nombre' => $nombre]);
-	$html = "<h2>HOLA ESTO ES UN VIRUS</h2>";
-	$consolas = [
-		"Nintendo Wii", 
-		//"Xbos Live",
-		//"PS4"
-	];
-	return view('saludos', compact('nombre', 'html','consolas'));
+//LLamado a un controlador con variable por URL
+Route::get('saludos/{nombre?}', ['as'=>'saludos', 'uses' => 'PagesController@saludos'])->where('nombre', "[A-Za-z]+");
 
-}])->where('nombre', "[A-Za-z]+");
+//Ejemplo de formulario
+Route::post('contacto', 'PagesController@mensajes')->name('contacto');
