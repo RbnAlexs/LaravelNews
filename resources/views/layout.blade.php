@@ -23,6 +23,6 @@
 		</header>
 		<h1>{{ request() -> is('vista') ? 'Estas en el inicio':'No estas en el inicio'}}</h1>
 		@yield('contenido')
-		<footer>Copyright {{date('Y')}}</footer>
+		<footer>Copyright {{date('Y')}} Esto es el pie de página</footer>
 	</body>
 </html>

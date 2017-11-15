@@ -15,7 +15,7 @@
 Route::view('/', 'home') -> name('home');
 
 //Retorna sólo una vista desde la ruta
-Route::view('/vista', 'vista',['variable'=>'Este el paso de una variable desde routa-vista'])->name('vista');
+Route::view('vista', 'vista',['variable'=>'Este el paso de una variable desde routa-vista'])->name('vista');
 
 //Llamado a un controlador
 Route::get('controlador', ['as' =>'inicio', 'uses'=>'PagesController@home']);
